@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #f9faf9;
+    color: #222;
+    text-align: right;
+    direction: rtl;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    flex: 1;
+}
+
+header {
+    background-color: #2c6e49;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+header img {
+    height: 110px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: #3a7d57;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 16px 24px;
+    color: #edf7f2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px 0 0 4px;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: #2c6e49;
+    color: #a8d5ba;
+}
+
+main {
+    padding: 40px 20px;
+    font-size: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+main p {
+    margin-bottom: 20px;
+}
+
+main h1, main h2, main h3 {
+    color: #2c6e49;
+    margin-bottom: 15px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+main section {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+    margin-bottom: 40px;
+}
+
+/* Reduce bottom margin for last section */
+main section:last-child {
+    margin-bottom: 20px;
+    padding-bottom: 0;
+}
+
+/* Specific sections for contact and join */
+main.contact-section,
+main.join-section {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+main.contact-section p,
+main.join-section p,
+main.contact-section form,
+main.join-section form {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+
+ul {
+    padding-inline-start: 20px;
+    margin-bottom: 20px;
+}
+
+a {
+  color: #2c6e49;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Removes mobile tap highlight */
+}
+
+a:hover,
+a:focus {
+    color: #14532d;
+    border-color: #14532d;
+}
+
+a.button {
+    background-color: #2c6e49;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+a.button:hover,
+a.button:focus {
+    background-color: #14532d;
+    color: #d1e8e2 !important;
+}
+
+footer {
+    background-color: #2c6e49;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Loading spinner overlay */
+#loading-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, background-color 0.3s ease;
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #2c6e49;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  transition: border-color 0.3s ease;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+body.loaded #loading-spinner {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header,
+body.dark-mode nav,
+body.dark-mode footer {
+  background-color: #1e3a2a;
+}
+
+body.dark-mode nav ul li a:hover,
+body.dark-mode nav ul li a:focus {
+  background-color: #1e3a2a;
+  color: #a8d5ba;
+}
+
+body.dark-mode main h1,
+body.dark-mode main h2,
+body.dark-mode main h3 {
+  color: #4caf7d;
+}
+
+body.dark-mode a {
+  color: #4caf7d;
+}
+
+body.dark-mode a:hover,
+body.dark-mode a:focus {
+  color: #81c784;
+}
+
+body.dark-mode a.button {
+  background-color: #4caf7d;
+  color: #121212 !important;
+}
+
+body.dark-mode a.button:hover,
+body.dark-mode a.button:focus {
+  background-color: #81c784;
+  color: #121212 !important;
+}
+
+body.dark-mode #loading-spinner {
+  background: #121212;
+}
+
+body.dark-mode .spinner {
+  border: 6px solid #2d2d2d;
+  border-top: 6px solid #4caf7d;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.dark-mode-toggle button {
+  background: #2c6e49;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: 'Cairo', sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle button:hover {
+  background: #3a7d57;
+}
+
+.dark-mode-toggle button svg {
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+}
+
+body.dark-mode .dark-mode-toggle button {
+  background: #4caf7d;
+}
+
+body.dark-mode .dark-mode-toggle button:hover {
+  background: #5cbf8d;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  nav ul li a {
+    padding: 12px 20px;
+    border-radius: 0;
+    border-left: 4px solid transparent;
+  }
+
+  nav ul li a:hover,
+  nav ul li a:focus {
+    border-left-color: #a8d5ba;
+    background-color: transparent;
+    color: #2c6e49;
+  }
+
+  main {
+    padding: 20px 15px;
+    font-size: 18px;
+    max-width: 100%;
+  }
+
+  header {
+    padding: 30px 15px;
+  }
+
+  footer {
+    padding: 20px 15px;
+    font-size: 14px;
+  }
+
+  header img {
+    height: 90px;
+    margin-bottom: 10px;
+  }
+  
+  .dark-mode-toggle {
+    bottom: 15px;
+    left: 15px;
+  }
+}

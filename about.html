@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>عن الفريق - فريق الإخاء</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+         <img src="Images/file.jpg" alt="شعار فريق الإخاء" />
+        <h1>عن فريق الإخاء</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html">عن الفريق</a></li>
+            <li><a href="activities.html">أنشطتنا</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+            <li><a href="#">الأعضاء</a></li>
+            <li><a href="join.html">الإنتساب</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <p>
+            فريق <strong>الإخاء</strong> هو فريق طلابي ديني تأسس في جامعة فيلادلفيا عام 2018، 
+            يهدف إلى تعزيز القيم الإسلامية وترسيخ الثقافة الدينية في حياة الطلاب. 
+            يضم الفريق مجموعة من الطلبة الذين يتشاركون في روح الأخوة والإيمان، ويطمحون إلى بناء مجتمع متحاب ومتماسك يلتزم بتعاليم الإسلام في حياتهم اليومية.
+        </p>
+
+        <p>
+            يقوم الفريق بتنظيم أنشطة متنوعة تشمل حلقات لتعليم القرآن الكريم، محاضرات، ندوات، وأعمال تطوعية، بالإضافة إلى دعم الأنشطة الأكاديمية.
+        </p>
+
+        <h2>أهداف الفريق:</h2>
+
+        <h3>تعزيز الوعي الديني:</h3>
+        <p>
+            التركيز على تعليم القرآن الكريم والسنة النبوية الشريفة بهدف إرساء القيم الدينية وتعميق الفهم الصحيح للإسلام.
+        </p>
+
+        <h3>تنظيم محاضرات وندوات دينية:</h3>
+        <p>
+            استضافة علماء ومتحدثين ذوي خبرة لتقديم محاضرات تناقش موضوعات تمس الشباب المسلم، مثل الأخلاق الإسلامية، دور العلم في المجتمع، وأهمية العمل الصالح.
+        </p>
+
+        <h3>التطوير الشخصي والاجتماعي للطلاب:</h3>
+        <p>
+            تقديم أنشطة تهدف إلى ترسيخ القيم الإسلامية وتطبيقها في الحياة اليومية.
+        </p>
+
+        <h3>تشجيع الأعمال التطوعية:</h3>
+        <p>
+            دعم الأعضاء للمشاركة الفعالة في مشاريع تخدم المجتمع وتعزز روح العطاء والقيم الإنسانية.
+        </p>
+
+        <h3>بناء مجتمع طلابي متماسك:</h3>
+        <p>
+            تعزيز روح الأخوة والتعاون بين الطلاب من خلال تنظيم أنشطة تربط الأعضاء وتخلق بيئة تعاونية إيجابية.
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 فريق الإخاء</p>
+    </footer>
+    <script>
+  // Check for saved theme preference or use system preference
+  function checkDarkMode() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark-mode');
+    }
+    updateToggleButton();
+  }
+
+  // Update toggle button text and icon
+  function updateToggleButton() {
+    const isDark = document.body.classList.contains('dark-mode');
+    const icon = isDark ? '☀️' : '🌙';
+    const text = isDark ? ' الوضع الفاتح' : ' الوضع الداكن';
+    
+    if (document.querySelector('.dark-mode-toggle-btn')) {
+      document.querySelector('.dark-mode-toggle-btn').innerHTML = `
+        <span>${icon}</span>
+        <span>${text}</span>
+      `;
+    }
+  }
+
+  // Initialize dark mode check
+  document.addEventListener('DOMContentLoaded', checkDarkMode);
+
+  // Toggle dark mode
+  function toggleDarkMode() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateToggleButton();
+  }
+
+  // Add toggle button
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'dark-mode-toggle-btn';
+    toggleBtn.onclick = toggleDarkMode;
+    
+    const toggleContainer = document.createElement('div');
+    toggleContainer.className = 'dark-mode-toggle';
+    toggleContainer.appendChild(toggleBtn);
+    document.body.appendChild(toggleContainer);
+    
+    updateToggleButton();
+  });
+
+  // Watch for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      document.body.classList.toggle('dark-mode', e.matches);
+      updateToggleButton();
+    }
+  });
+</script>
+</body>
+</html>
